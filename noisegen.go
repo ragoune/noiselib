@@ -204,5 +204,5 @@ func ValueCoherentNoise3D(x, y, z float64, seed, quality int) float64 {
 }
 
 func ValueNoise3D(x, y, z, seed int) float64 {
-	return 1.0 - (float64((IntValueNoise3D(x, y, z, seed) / 1073741824.0)))
+	return 1.0 - float64(IntValueNoise3D(x, y, z, seed))/1073741824.0
 }
