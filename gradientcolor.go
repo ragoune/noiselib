@@ -2,6 +2,7 @@ package noiselib
 
 import (
 	"image/color"
+	"sort"
 )
 
 type GradientColor struct {
@@ -25,6 +26,8 @@ func (g *GradientColor) GetColor(position float64) color.RGBA {
 	for k, _ := range g.GradientPoints {
 		keys = append(keys, k)
 	}
+	
+	sort.Float64s(keys)
 
 	indexPos := 0
 
