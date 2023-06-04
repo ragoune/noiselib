@@ -122,15 +122,19 @@ func (r *RenderImage) Render() {
 			r.DestinationImage.Set(x, height-y-1, newColor)
 		}
 	}
+}
 
-	file, err := os.Create("test.png")
+func (r *RenderImage) RenderFile(filename string) {
+	r.Render()
+
+	file, err := os.Create(filename)
 
 	if err != nil {
 		panic("Something went wrong with opening a file.")
 	}
 	defer file.Close()
 
-	png.Encode(file, r.DestinationImage.SubImage(image.Rect(0, 0, width, height)))
+	png.Encode(file, r.DestinationImage.SubImage(r.DestinationImage.Bounds()))
 }
 
 func (r *RenderImage) SetLightAzimuth(azimuth float64) {
