@@ -12,6 +12,7 @@ const (
 	BillowModuleCount     = 0
 	BlendModuleCount      = 3
 	ClampModuleCount      = 1
+	CurveModuleCount      = 1
 	DisplaceModuleCount   = 4
 	ExponentModuleCount   = 1
 	InvertModuleCount     = 1
@@ -27,7 +28,7 @@ const (
 const SQRT_3 = 1.7320508075688772
 const SQRT_2 = 1.4142135623730951
 
-//Really should be a constant, but no constant arrays in Go
+// Really should be a constant, but no constant arrays in Go
 var RandomVectors = []float64{
 	-0.763874, -0.596439, -0.246489, 0.0,
 	0.396055, 0.904518, -0.158073, 0.0,
