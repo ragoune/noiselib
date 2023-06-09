@@ -67,16 +67,16 @@ func (t Terrace) GetValue(x, y, z float64) float64 {
 	return LinearInterp(value0, value1, alpha)
 }
 
-func (t Terrace) AddControlPoint(value float64) {
+func (t *Terrace) AddControlPoint(value float64) {
 	t.ControlPoints = append(t.ControlPoints, value)
 	sort.Float64s(t.ControlPoints)
 }
 
-func (t Terrace) ClearAllControlPoints() {
+func (t *Terrace) ClearAllControlPoints() {
 	t.ControlPoints = make([]float64, 2)
 }
 
-func (t Terrace) MakeControlPoints(count int) {
+func (t *Terrace) MakeControlPoints(count int) {
 	if count < 2 {
 		panic("ControlPoint count must be at least 2.")
 	}
