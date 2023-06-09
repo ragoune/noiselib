@@ -17,5 +17,9 @@ func (i Invert) GetValue(x, y, z float64) float64 {
 		panic("Invert must have 1 source module.")
 	}
 
-	return -i.GetValue(x, y, z)
+	return -i.SourceModule[0].GetValue(x, y, z)
+}
+
+func DefaultInvert() Invert {
+	return Invert{make([]Module, InvertModuleCount)}
 }
